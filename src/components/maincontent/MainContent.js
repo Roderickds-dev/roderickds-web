@@ -1,3 +1,4 @@
+"use client";
 import { useHeaderContext } from "@/context/HeaderContext";
 import React from "react";
 import About from "../sections/About";
@@ -8,18 +9,21 @@ import Contact from "../sections/Contact";
 const MainContent = () => {
   const { showContent } = useHeaderContext();
   return (
-    <div className="flex rounded-md w-[450px] sm:w-[650px] h-[550px] md:w-[750px] md:h-[750px] bg-mediumBlue overflow-auto md:mt-4 ml-2 overflow-y-scroll [scrollbar-width:thin]">
-      <div className="flex md:justify-center md:items-center">
-        {!showContent && <About />}
+    <div className="flex w-full h-full">
+      <div id="about" className={`${showContent === 1 ? "flex" : "hidden"}`}>
+        {(!showContent || showContent === 1) && <About />}
       </div>
-      <div className="flex md:justify-center md:items-center">
-        {showContent === 1 && <About />}
-      </div>
-      <div className="overflow-x-hidden overflow-y-auto [scrollbar-width:thin]">
+      <div id="short" className={`${showContent === 2 ? "flex" : "hidden"}`}>
         {showContent === 2 && <Short />}
       </div>
-      <div>{showContent === 3 && <Portfolio />}</div>
-      <div className="overflow-x-hidden overflow-y-auto [scrollbar-width:thin]">
+      <div
+        id="portfolio"
+        className={`${showContent === 3 ? "flex" : "hidden"} w-full h-full`}
+      >
+        {showContent === 3 && <Portfolio />}
+      </div>
+
+      <div id="contact" className={`${showContent === 4 ? "flex" : "hidden"}`}>
         {showContent === 4 && <Contact />}
       </div>
     </div>

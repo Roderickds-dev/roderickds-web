@@ -17,6 +17,9 @@ module.exports = {
         reactBlue: "#61DAFB",
         reactBlack: "#1F2D40",
         mediumBlue: "#49B5FD",
+        clearGray: "#E5EAEE",
+        clearPurple: "#B48EAE",
+        frenchGray: "#C9C5CB",
       },
       fontFamily: {
         montserrat: ["Montserrat"],
@@ -32,16 +35,17 @@ module.exports = {
           "100%": { left: "15%", top: "15%" },
         },
         "scroll-reverse": {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(calc(-50% - 5px))" },
+          "0%": { transform: "translateX(-50%)" },
+          "50%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(50%)" },
         },
         "scroll-front": {
           "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-30%)" },
+          "100%": { transform: "translateX(-40%)" },
         },
         "scroll-back": {
           "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(30%)" },
+          "100%": { transform: "translateX(40%)" },
         },
       },
       animation: {

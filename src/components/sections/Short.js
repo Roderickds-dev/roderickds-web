@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 
@@ -78,8 +79,8 @@ const Short = () => {
       {
         id: 5,
         name: "Responsive Designe",
-        percentage: 80,
-        value: 80,
+        percentage: 90,
+        value: 90,
         color: "progress progress-error",
       },
     ];
@@ -87,12 +88,10 @@ const Short = () => {
   return (
     <div
       id="principal"
-      className="flex flex-col justify-center mx-4 my-6 md:mx-8 gap-3 w-full"
+      className="flex flex-col items-center justify-center dark:bg-reactBlack dark:text-white font-barlow font-light p-2 w-full h-full"
     >
-      <h1 className="text-4xl text-reactBlack dark:text-white font-medium inline-block relative after:content[''] after:inline-block md:after:w-[450px] after:w-[130px] after:flex-wrap after:h-[2px] after:bg-clearBlue md:after:ml-[70px] after:ml-12 [vertical-align:middle] after:shadow-sm after:shadow-reactBlack/45 after:dark:bg-reactBlack after:dark:shadow-white/45 mt-5">
-        Resumen
-      </h1>
-      <div id="educacion" className="flex m-4">
+      <div id="educacion" className="flex flex-col w-full gap-2">
+        <h1 className="text-4xl">Resumen</h1>
         <h1 className="flex gap-4 text-reactBlack dark:text-white text-2xl">
           <Image
             src="/images/sombrero-de-graduado.png"
@@ -105,25 +104,28 @@ const Short = () => {
           Educación
         </h1>
       </div>
-      <div className="flex flex-wrap justify-evenly items-center">
+      <div className="flex flex-wrap justify-evenly items-center gap-2">
         {cardsEducation.map((el, index) => (
           <div
             key={index}
             id="tarjetas"
-            className="flex flex-col flex-nowrap  bg-clearBlue text-reactBlack dark:bg-reactBlack dark:text-white w-[280px] gap-2 m-2 px-8 py-4 rounded-md h-[120px] justify-center"
+            className="flex flex-col m-2 flex-nowrap items-center justify-center rounded-md border-2 border-clearPurple bg-white text-reactBlack dark:bg-reactBlack dark:text-white gap-2"
           >
-            <h1 className="font-ruluko text-lg">{el.date}</h1>
-            <h2 className="font-bold -mx-2 [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)] text-lg dark:[text-shadow:_2px_2px_4px_rgba(255,255,255,0.3)]">
-              {el.title}
-            </h2>
-            <i className="bi bi-circle-fill text-[6px] flex  items-center content-center gap-2">
-              <p className="font-ruluko font-light text-lg ">{el.location}</p>
-            </i>
+            <div className="flex flex-col min-w-36 justify-center items-center m-4">
+              <h1 className="font-ruluko text-lg">{el.date}</h1>
+              <h2 className="font-bold [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)] text-lg dark:[text-shadow:_2px_2px_4px_rgba(255,255,255,0.3)]">
+                {el.title}
+              </h2>
+              <i className="bi bi-circle-fill text-[6px] flex  items-center content-center gap-2">
+                <p className="font-ruluko font-light text-lg ">{el.location}</p>
+              </i>
+            </div>
           </div>
         ))}
       </div>
-      <div id="skilles" className="flex justify-evenly items-center flex-wrap">
-        <div id="skiles izquierda" className="flex flex-col gap-2 m-4">
+      {/* SKILLES */}
+      <div id="skilles" className="flex  w-full items-center">
+        <div className="flex flex-col w-[60%] items-center">
           <h1 className="flex gap-4 text-reactBlack dark:text-white text-2xl">
             <Image
               src="/images/notebook.png"
@@ -135,46 +137,54 @@ const Short = () => {
             />
             Skills
           </h1>
-          {cardSkill.map((el, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center gap-2 p-3 bg-clearBlue  text-reactBlack dark:bg-reactBlack dark:text-white  rounded-2xl"
-            >
-              <ul className="flex justify-around w-[280px]">
-                <li className="m-2 font-bold -mx-2 [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)] text-lg dark:[text-shadow:_2px_2px_4px_rgba(255,255,255,0.3)]">
-                  {el.name}
-                </li>
-                <li className="m-2 font-ruluko font-thin">{el.percentage}%</li>
-              </ul>
-              <progress
-                className={`${el.color} w-56 dark:bg-white`}
-                value={el.value}
-                max="100"
-              ></progress>
-            </div>
-          ))}
+          <div
+            id="skiles izquierda"
+            className="flex justify-around items-center flex-wrap gap-2 m-4"
+          >
+            {cardSkill.map((el, index) => (
+              <div
+                id="skiles"
+                key={index}
+                className="flex flex-col items-center gap-2 p-2 bg-clearPurple text-white dark:text-white rounded-2xl"
+              >
+                <ul className="flex justify-around w-full">
+                  <li className="p-2 font-medium xl:font-semibold [text-shadow:_2px_2px_4px_rgba(0,0,0,0.3)] text-sm xl:text-xl dark:[text-shadow:_2px_2px_4px_rgba(255,255,255,0.3)] w-full">
+                    {el.name}
+                  </li>
+                  <li className="p-2 font-ruluko font-thin content-center">
+                    {el.percentage}%
+                  </li>
+                </ul>
+                <progress
+                  className={`${el.color} w-44 bg-white`}
+                  value={el.value}
+                  max="100"
+                ></progress>
+              </div>
+            ))}
+          </div>
         </div>
         <div
           id="skilles derecha"
-          className="flex justify-center items-center w-[330px]"
+          className="flex justify-center items-center w-[40%]"
         >
-          <ul className="flex items-center justify-center flex-col p-4 m-2 gap-4">
-            <li className="bg-clearBlue  text-reactBlack dark:bg-reactBlack dark:text-white  rounded-2xl w-48 h-8 flex justify-center items-center animate-scroll-front">
+          <ul className="flex items-center justify-center text-xl flex-col p-4 m-2 gap-4">
+            <li className="bg-clearPurple text-white rounded-2xl p-2 flex text-center lg:animate-scroll-front">
               Responsabilidad
             </li>
-            <li className="bg-clearBlue  text-reactBlack dark:bg-reactBlack dark:text-white rounded-2xl w-48 h-8 flex justify-center items-center animate-scroll-back">
+            <li className="bg-clearPurple text-white rounded-2xl p-2 flex text-center lg:animate-scroll-back">
               Trabajo en Equipo
             </li>
-            <li className="bg-clearBlue  text-reactBlack dark:bg-reactBlack dark:text-white  rounded-2xl w-48 h-8 flex justify-center items-center animate-scroll-front">
+            <li className="bg-clearPurple text-white rounded-2xl p-2 flex text-center lg:animate-scroll-back">
               Puntualidad
             </li>
-            <li className="bg-clearBlue  text-reactBlack dark:bg-reactBlack dark:text-white  rounded-2xl w-48 h-8 flex justify-center items-center animate-scroll-back">
+            <li className="bg-clearPurple text-white rounded-2xl  p-2 flex text-center lg:animate-scroll-front">
               Aprendizaje Continuo
             </li>
-            <li className="bg-clearBlue  text-reactBlack dark:bg-reactBlack dark:text-white  rounded-2xl w-48 h-8 flex justify-center items-center animate-scroll-front">
+            <li className="bg-clearPurple text-white rounded-2xl p-2 flex text-center lg:animate-scroll-back">
               Gestión del Tiempo
             </li>
-            <li className="bg-clearBlue  text-reactBlack dark:bg-reactBlack dark:text-white  rounded-2xl w-48 h-8 flex justify-center items-center animate-scroll-back">
+            <li className="bg-clearPurple text-white rounded-2xl p-2 flex text-center lg:animate-scroll-back">
               Detallista
             </li>
           </ul>

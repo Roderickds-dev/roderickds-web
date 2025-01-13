@@ -84,50 +84,50 @@ const Contact = () => {
     };
 
   return (
-    <div className="flex flex-col gap-2 justify-center my-4 md:my-0 ">
-      <h1 className="text-4xl text-reactBlack dark:text-white font-medium inline-block relative after:content[''] after:inline-block sm:after:w-[380px] md:after:w-[450px] after:w-[130px] after:flex-wrap after:h-[2px] after:bg-clearBlue md:after:ml-[70px] after:ml-12 [vertical-align:middle] after:shadow-sm after:shadow-reactBlack/45 after:dark:bg-reactBlack after:dark:shadow-white/45 mx-6 md:mt-10">
-        Contacto
-      </h1>
+    <div
+      className={`${
+        message ? "justify-start" : "justify-center"
+      } flex flex-col items-center dark:bg-reactBlack dark:text-white font-barlow font-light p-2 w-full h-full text-2xl gap-2`}
+    >
+      <h1 className="text-4xl p-3">Contacto</h1>
       <div className="flex flex-col gap-4 justify-center items-center">
-        <div className="flex justify-center items-center w-full  gap-4 m-6 flex-wrap">
-          <div className=" text-white flex gap-4 justify-center items-center">
-            <i className="bi bi-envelope bg-clearBlue text-reactBlack dark:bg-reactBlack dark:text-white h-12 w-12 flex justify-center items-center text-2xl rounded-full"></i>
-            <div className="text-reactBlack dark:text-white">
-              <p className="font-barlow text-xl font-semibold">Correo</p>
-              <p>roderickds.dev@gmail.com</p>
-            </div>
+        {/*DIV DE LAS ICONOS DE CONTACTO */}
+        <div className="flex justify-around items-center w-full flex-wrap">
+          <div id="contacto-mail" className="flex">
+            <a href="mailto:roderickds.dev@gmail.com" target="_blank">
+              <i className="bi bi-envelope text-reactBlack hover:text-clearPurple dark:hover:text-clearPurple dark:text-white flex justify-center items-center gap-2">
+                Contáctame!
+              </i>
+            </a>
           </div>
-          <div className=" text-white flex gap-2 justify-center items-center">
-            <i className="bi bi-telephone bg-clearBlue text-reactBlack dark:bg-reactBlack dark:text-white h-12 w-12 flex justify-center items-center text-2xl rounded-full"></i>
-            <div className="text-reactBlack dark:text-white">
-              <p className="font-barlow text-xl font-semibold">Celular</p>
-              <p>+911 22 5852 74 </p>
-            </div>
+          <div id="contacto-git-hub">
+            <Link href="https://github.com/Roderickds-dev" target="_blank">
+              <i className="bi bi-github text-reactBlack hover:text-clearPurple dark:hover:text-clearPurple dark:text-white flex justify-center items-center gap-2">
+                GitHub
+              </i>
+            </Link>
           </div>
-          <div className="text-white flex gap-4 justify-center items-center">
+          <div id="contacto-linkedin">
             <Link
               href="https://www.linkedin.com/in/roderickds-dev/"
               target="_blank"
-              className="flex gap-4 items-center justify-center group"
             >
-              <i className="bi bi-linkedin group-hover:scale-125 bg-clearBlue text-reactBlack dark:bg-reactBlack dark:text-white h-12 w-12 flex justify-center items-center text-2xl rounded-full hover:bg-reactBlue dark:hover:bg-white dark:hover:text-reactBlack transition-all"></i>
+              <i className="bi bi-linkedin text-reactBlack hover:text-clearPurple dark:hover:text-clearPurple dark:text-white flex justify-center items-center gap-2">
+                LinkedIn
+              </i>
             </Link>
-            <div className="text-reactBlack dark:text-white">
-              <p className="font-barlow text-xl font-semibold">LinkedIn</p>
-              <p>Roderick Díaz</p>
-            </div>
           </div>
         </div>
         {!message ? (
-          <div className="flex flex-col justify-center items-center bg-clearBlue dark:bg-reactBlack text-reactBlack dark:text-white rounded-md p-2 w-3/4">
-            <h1 className="text-center m-4 font-ruluko text-xl font-semibold">
+          <div className="flex flex-col justify-center items-center dark:bg-reactBlack text-reactBlack dark:text-white rounded-md p-2">
+            <h1 className="text-center p-2 font-ruluko text-xl font-semibold">
               ¡Trabajemos juntos!
             </h1>
-            <p className="text-center">
+            <p className="text-center p-2">
               Soy FrontEnd Web Developer en constante crecimiento. Estoy
-              buscando oportunidades para aplicar mis conocimientos y habilidades para seguir
-              creciendo profesionalmente en el mundo del desarrollo web. No
-              dudes en contactarme.
+              buscando oportunidades para aplicar mis conocimientos y
+              habilidades para seguir creciendo profesionalmente en el mundo del
+              desarrollo web. No dudes en contactarme.
             </p>
             {loading && (
               <div className="flex items-center p-4">
@@ -136,7 +136,7 @@ const Contact = () => {
             )}
             <form
               ref={formRef}
-              className="flex flex-col gap-2 m-6"
+              className="flex flex-col gap-2 p-4"
               onSubmit={handleSubmit}
             >
               <input
@@ -145,13 +145,10 @@ const Contact = () => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={form.name}
-                className="border-2 rounded-xl p-1 bg-transparent dark:bg-white border-reactBlack focus:border-mediumBlue dark:focus:border-reactBlue  bg-opacity-30 outline-none w-60 focus:scale-105 transition-all peer z-10 text-reactBlack"
+                className="border-2 rounded-xl p-1 bg-transparent dark:bg-white border-reactBlack focus:border-clearPurple dark:focus:border-clearPurple  bg-opacity-30 outline-none focus:scale-105 transition-all peer z-10 text-reactBlack"
               />
               {errors.name && <Message msj={errors.name} />}
-              <label
-                htmlFor="name"
-                className="font-barlow text-xl [align-self:start]"
-              >
+              <label htmlFor="name" className="text-xl place-self-start">
                 Nombre *
               </label>
               <input
@@ -160,13 +157,10 @@ const Contact = () => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={form.email}
-                className="border-2 rounded-xl p-1 bg-transparent dark:bg-white border-reactBlack focus:border-mediumBlue dark:focus:border-reactBlue  bg-opacity-30 outline-none w-60 focus:scale-105 transition-all peer z-10 text-reactBlack"
+                className="border-2 rounded-xl p-1 bg-transparent dark:bg-white border-reactBlack focus:border-clearPurple dark:focus:border-clearPurple  bg-opacity-30 outline-none w-60 focus:scale-105 transition-all peer z-10 text-reactBlack"
               />
               {errors.email && <Message msj={errors.email} />}
-              <label
-                htmlFor="email"
-                className="font-barlow text-xl [align-self:start]"
-              >
+              <label htmlFor="email" className="text-xl place-self-start">
                 Correo Electronico *
               </label>
               <textarea
@@ -176,20 +170,17 @@ const Contact = () => {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={form.subject}
-                className="border-2 rounded-xl p-1 bg-transparent dark:bg-white border-reactBlack focus:border-mediumBlue dark:focus:border-reactBlue  bg-opacity-30 outline-none w-60 focus:scale-105 transition-all peer z-10 text-reactBlack resize-none"
+                className="border-2 rounded-xl p-1 bg-transparent dark:bg-white border-reactBlack focus:border-clearPurple dark:focus:border-clearPurple  bg-opacity-30 outline-none w-60 focus:scale-105 transition-all peer z-10 text-reactBlack resize-none"
               ></textarea>
               {errors.subject && <Message msj={errors.subject} />}
-              <label
-                htmlFor="message"
-                className="font-barlow text-xl [align-self:start]"
-              >
+              <label htmlFor="message" className="text-xl place-self-start">
                 Mensaje *
               </label>
 
               <input
                 type="submit"
                 value="Enviar"
-                className="flex btn p-4 rounded-lg bg-mediumBlue text-reactBlack hover:bg-reactBlue dark:bg-white dark:text-reactBlack dark:hover:bg-reactBlue dark:hover:text-white w-20 border-none ml-40"
+                className="flex text-white bg-clearPurple gap-2 text-xl rounded-md p-2.5 place-self-end cursor-pointer"
               />
 
               <input type="hidden" name="_next" value="http://localhost:3000" />
@@ -197,14 +188,14 @@ const Contact = () => {
             </form>
           </div>
         ) : (
-          <div className="flex flex-col w-full m-20 justify-center items-center dark:text-white">
-            <p className="font-barlow text-4xl m-4 gap-4 text-center">
+          <div className="flex flex-col w-full m-4 justify-center items-center dark:text-white">
+            <p className="text-4xl m-4 gap-4 text-center">
               ¡Gracias por su mensaje!
             </p>
-            <p className="font-barlow text-2xl m-4 gap-4 text-center">
+            <p className="text-2xl p-4 gap-4 text-center">
               Aprecio mucho que se haya tomado el tiempo para ponerte en
               contacto conmigo. Revisaré su mensaje lo antes posible y muy
-              pronto tendra una respuesta de mi parte.
+              pronto recibirá una respuesta de mi parte.
             </p>
           </div>
         )}

@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { useHeaderContext } from "@/context/HeaderContext";
@@ -37,7 +38,7 @@ const About = () => {
     },
     {
       id: 5,
-      src: "/images/js_css_html.png",
+      src: "/images/javascript.jpg",
       title: "JS, CSS & HTML",
       description:
         "Tengo buen manejo de JavaScript. Creo sitios web accesibles y semánticos con HTML, mientras desarrollo estilos responsivos y adaptables con CCS, flexbox y CSS Grid.",
@@ -69,12 +70,10 @@ const About = () => {
   }, [isMobile]);
 
   return (
-    <div className="flex flex-col items-center content-center h-full my-6 mx-4">
-      <div className="flex flex-col w-full items-center justify-center mx-4">
-        <h1 className="text-4xl text-reactBlack dark:text-white font-medium inline-block relative after:content[''] after:inline-block md:after:w-[450px] after:w-[150px] after:flex-wrap after:h-[2px] after:bg-clearBlue md:after:ml-[100px] after:ml-12 [vertical-align:middle] after:shadow-sm after:shadow-reactBlack/45 after:dark:bg-reactBlack after:dark:shadow-white/45 mt-5">
-          Acerca
-        </h1>
-        <p className="my-4 text-xl text-center text-reactBlack dark:text-white font-normal bg-clearBlue dark:bg-reactBlack m-2 p-2 rounded-md">
+    <div className="flex flex-col items-center justify-center dark:bg-reactBlack dark:text-white font-barlow font-light p-2 w-full h-full">
+      <div className="flex flex-col items-center justify-center flex-wrap">
+        <h1 className="text-4xl">Acerca</h1>
+        <p className="text-xl text-center text-reactBlack dark:text-white dark:bg-reactBlack p-2">
           Hola, Soy desarrollador frontend con experiencia en JavaScript, HTML,
           CSS y especializado en frameworks y bibliotecas modernas como Next.js
           y React.js. Mi visión es desarrollar interfaces eficientes, accesibles
@@ -83,23 +82,24 @@ const About = () => {
           tendencias en el desarrollo web.
         </p>
       </div>
-
+      {/* RENDERIZADO VERSION MOBILE */}
       {isMobile ? (
-        <div
-          id="contenedor-principal"
-          className="flex flex-wrap gap-4 m-4 p-4 justify-center"
-        >
-          <div id="container" className="w-[232px] h-[202px] group">
+        <div id="contenedor-principal" className="flex p-2 h-full w-full">
+          <div
+            id="container"
+            className="w-full h-auto flex gap-4 justify-center flex-wrap group"
+          >
             {cardsData.map((card, index) => (
               <div
                 ref={(el) => (cards.current[index] = el)}
                 key={card.id}
                 id={`card-${index}`}
-                className="relative w-full h-full gap-6 mb-20 mx-2 flex justify-center shadow-xl shadow-reactBlack rounded-lg"
+                className="relative w-[212px] h-[182px] m-2 flex justify-center rounded-lg"
               >
+                {/* PARTE DELANTERA DE LAS CARDS */}
                 <div
                   id={`front-${index}`}
-                  className="absolute w-full h-full bg-white [backface-visibility:hidden] rounded-lg"
+                  className="absolute w-full h-full [backface-visibility:hidden] rounded-lg"
                 >
                   <Image
                     src={card.src}
@@ -109,41 +109,45 @@ const About = () => {
                     alt={`Este es el titulo de las tarjetas de presentación ${card.title}`}
                     className={
                       card.id === 5
-                        ? "rounded-lg object-contain w-full h-full"
+                        ? "rounded-lg object-fill w-full h-full"
                         : "rounded-lg object-cover w-full h-full"
                     }
                     quality={100}
                   />
                 </div>
+                {/**PARTE TRASERA DE LAS CARDS*/}
                 <div
                   id={`back-${index}`}
-                  className="absolute w-full h-full bg-clearBlue [transform:rotateY(180deg)]  [backface-visibility:hidden]  text-reactBlack flex flex-col justify-center items-center rounded-md border-none dark:bg-reactBlack dark:text-white"
+                  className="absolute w-full h-full [transform:rotateY(180deg)] [backface-visibility:hidden] flex justify-center items-center rounded-md border-2 border-clearPurple bg-white text-reactBlack dark:bg-reactBlack dark:text-white"
                 >
-                  <p className="text-sm text-center">{card.description}</p>
+                  <p className="text-md text-center">{card.description}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
       ) : (
+        // /** ESTA ES EL RENDERIZADO VENTANA COMPLETA **/
         <div
           id="contenedor-principal"
-          className="flex flex-wrap gap-4 m-4 p-4 justify-evenly"
+          className="flex flex-wrap p-2 justify-evenly"
         >
           {cardsData.map((card, index) => (
             <div
               ref={(el) => (cards.current[index] = el)}
               key={card.id}
               id="container"
-              className="w-[232px] h-[202px] [perspective:500px] group m-2 "
+              className="w-[212px] h-[182px] [perspective:500px] group m-2 "
             >
+              {/**DIV CONTIENE LAS CARDS INTERNAMENTE */}
               <div
                 id={`card-${index}`}
-                className="relative w-full h-full transition-transform duration-[1500ms] [transform-style:preserve-3d] hover:cursor-pointer group-hover:[transform:rotateY(180deg)] shadow-xl shadow-reactBlack rounded-lg "
+                className="relative w-full h-full transition-transform duration-[1500ms] [transform-style:preserve-3d] hover:cursor-pointer group-hover:[transform:rotateY(180deg)]"
               >
+                {/* PARTE DELANTERA DE LAS CARDS VERSION MOBILE */}
                 <div
                   id={`front-${index}`}
-                  className="absolute w-full h-full bg-white [backface-visibility:hidden] rounded-lg"
+                  className="absolute w-full h-full [backface-visibility:hidden] rounded-lg"
                 >
                   <Image
                     src={card.src}
@@ -153,17 +157,18 @@ const About = () => {
                     alt={`Este es el titulo de las tarjetas de presentación ${card.title}`}
                     className={
                       card.id === 5
-                        ? "rounded-lg object-contain w-full h-full"
+                        ? "rounded-lg object-fill w-full h-full"
                         : "rounded-lg object-cover w-full h-full"
                     }
                     quality={100}
                   />
                 </div>
+                {/* PARTE TRASERAS DE LAS CARDS EN VERSION PANTALLA COMPLETA */}
                 <div
                   id={`back-${index}`}
-                  className="absolute w-full h-full dark:bg-reactBlack [transform:rotateY(180deg)]  [backface-visibility:hidden]  dark:text-white flex flex-col justify-center items-center rounded-md border-none content-center bg-clearBlue text-reactBlack"
+                  className="flex justify-center items-center absolute w-full h-full [transform:rotateY(180deg)] [backface-visibility:hidden] rounded-md border-2 border-clearPurple bg-white text-reactBlack dark:bg-reactBlack dark:text-white"
                 >
-                  <p className="text-sm text-center">{card.description}</p>
+                  <p className="text-md text-center">{card.description}</p>
                 </div>
               </div>
             </div>

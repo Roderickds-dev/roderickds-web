@@ -9,11 +9,6 @@ const Footer = () => {
       title: "Redux",
     },
     {
-      id: 2,
-      src: "/images/framer.png",
-      title: "Framer",
-    },
-    {
       id: 3,
       src: "/images/daisy.png",
       title: "Daisy",
@@ -31,13 +26,13 @@ const Footer = () => {
   ];
 
   return (
-    <div className="overflow-hidden flex bg-mediumBlue rounded-md ">
-      <div className="flex rounded-md sm:w-[800px] justify-center sm:h-[150px] bg-mediumBlue items-center w-auto gap-2 sm:m-4 sm:ml-8 p-3">
+    <div className="flex flex-col justify-center bg-clearPurple items-center p-2">
+      <div className="flex w-full justify-center items-center gap-2 p-2">
         {imageData.map((el, index) => (
           <div
             id={el.id}
             key={index}
-            className="flex justify-center items-center sm:w-[115px] sm:h-[95px] bg-white rounded-full shadow-md shadow-slate-600 gap-1 my-3 w-[75px] h-[55px] sm:animate-scroll-reverse"
+            className="flex justify-center items-center sm:w-[85px] sm:h-[65px] bg-white rounded-full shadow-md shadow-slate-600 gap-1 w-[75px] h-[55px] sm:animate-scroll-reverse"
           >
             <Image
               src={el.src}
@@ -51,6 +46,7 @@ const Footer = () => {
           </div>
         ))}
       </div>
+      <p className="text-white">Derechos de autor © 2024 Roderick Díaz</p>
     </div>
   );
 };
