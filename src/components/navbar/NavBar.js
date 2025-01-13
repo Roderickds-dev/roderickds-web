@@ -68,8 +68,6 @@ const NavBar = () => {
 
     if (target) {
       const targetPosition = target.offsetTop - headerHeight;
-      // const targetPosition =
-      //   window.scrollY + target.getBoundingClientRect().top - headerHeight;
       window.scrollTo({
         top: targetPosition,
         behavior: "smooth",

@@ -38,7 +38,6 @@ body {
     "footer";
   min-height: 100%;
   min-width: 100%;
-  /* min-width: 100dvw; */
   grid-template-rows: minmax(90px, auto) 1fr auto;
   grid-template-columns: 1fr;
 }
@@ -59,28 +58,15 @@ body {
 header {
   grid-area: header;
 }
-/* 
-@media (width > 1024px) {
-  #nav-button {
-    display: hidden;
-  }
-} */
-
-/* #navbar-header {
-  background: linear-gradient(360deg, #ffffff, #c9c5cb); ***white mode*** 
-  background: linear-gradient(360deg, #ffffff, #1f2d40); ***Dark mode color***
-} */
 
 aside {
   grid-area: aside;
-  /* background-color: salmon;*/
 }
 
 main {
   grid-area: main;
   min-height: 100vh;
   height: 100%;
-  /* background-color: yellow; */
 }
 
 footer {
