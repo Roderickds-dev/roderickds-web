@@ -1,8 +1,8 @@
 "use client";
 import Footer from "@/components/footer/Footer";
-import MainContent from "@/components/mainContent/MainContent";
-import NavBar from "@/components/navBar/NavBar";
-import SideBar from "@/components/sideBar/SideBar";
+import MainContent from "@/components/maincontent/MainContent";
+import NavBar from "@/components/navbar/NavBar";
+import SideBar from "@/components/sidebar/SideBar";
 
 const Index = () => {
   return (
