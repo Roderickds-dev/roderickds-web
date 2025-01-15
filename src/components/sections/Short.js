@@ -88,11 +88,14 @@ const Short = () => {
   return (
     <div
       id="principal"
-      className="flex flex-col items-center justify-center dark:bg-reactBlack dark:text-white font-barlow font-light p-2 w-full h-full"
+      className="flex flex-col items-center justify-center dark:bg-reactBlack dark:text-white font-barlow font-light p-6 w-full h-full"
     >
-      <div id="educacion" className="flex flex-col w-full gap-2">
-        <h1 className="text-4xl">Resumen</h1>
-        <h1 className="flex gap-4 text-reactBlack dark:text-white text-2xl">
+      <div
+        id="educacion"
+        className="flex flex-col w-full gap-2 justify-center items-center xl:h-[20%]"
+      >
+        <h1 className="text-4xl border-b-4 border-clearPurple p-2">Resumen</h1>
+        <h1 className="flex gap-4 text-reactBlack dark:text-white text-2xl p-2">
           <Image
             src="/images/sombrero-de-graduado.png"
             width={35}

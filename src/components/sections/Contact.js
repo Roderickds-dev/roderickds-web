@@ -87,9 +87,9 @@ const Contact = () => {
     <div
       className={`${
         message ? "justify-start" : "justify-center"
-      } flex flex-col items-center dark:bg-reactBlack dark:text-white font-barlow font-light p-2 w-full h-full text-2xl gap-2`}
+      } flex flex-col items-center dark:bg-reactBlack dark:text-white font-barlow font-light p-4 w-full h-full text-2xl gap-4`}
     >
-      <h1 className="text-4xl p-3">Contacto</h1>
+      <h1 className="text-4xl p-2 border-b-4 border-clearPurple">Contacto</h1>
       <div className="flex flex-col gap-4 justify-center items-center">
         {/*DIV DE LAS ICONOS DE CONTACTO */}
         <div className="flex justify-around items-center w-full flex-wrap">

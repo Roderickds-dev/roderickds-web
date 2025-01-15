@@ -9,11 +9,14 @@ import Contact from "../sections/Contact";
 const MainContent = () => {
   const { showContent } = useHeaderContext();
   return (
-    <div className="flex w-full h-full">
+    <div className="flex w-full h-full ">
       <div id="about" className={`${showContent === 1 ? "flex" : "hidden"}`}>
         {(!showContent || showContent === 1) && <About />}
       </div>
-      <div id="short" className={`${showContent === 2 ? "flex" : "hidden"}`}>
+      <div
+        id="short"
+        className={`${showContent === 2 ? "flex" : "hidden"} w-full h-full`}
+      >
         {showContent === 2 && <Short />}
       </div>
       <div

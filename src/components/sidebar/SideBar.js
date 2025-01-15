@@ -10,7 +10,7 @@ const SideBar = () => {
     <div
       className={`${
         isMobile && "shadow-md dark:shadow-white"
-      } flex h-full justify-center items-center lg:items-start gap-2 p-4 dark:bg-reactBlack`}
+      } flex h-full justify-center items-center lg:items-start gap-2 p-6 dark:bg-reactBlack`}
     >
       <div className="flex flex-col justify-center items-center">
         {/**DIV QUE CONTIENE LA IMAGEN */}

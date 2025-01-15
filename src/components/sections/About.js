@@ -70,9 +70,9 @@ const About = () => {
   }, [isMobile]);
 
   return (
-    <div className="flex flex-col items-center justify-center dark:bg-reactBlack dark:text-white font-barlow font-light p-2 w-full h-full">
+    <div className="flex flex-col items-center justify-center dark:bg-reactBlack dark:text-white font-barlow font-light gap-4 p-6 w-full h-full">
       <div className="flex flex-col items-center justify-center flex-wrap">
-        <h1 className="text-4xl">Acerca</h1>
+        <h1 className="text-4xl border-b-4 border-clearPurple p-2">Acerca</h1>
         <p className="text-xl text-center text-reactBlack dark:text-white dark:bg-reactBlack p-2">
           Hola, Soy desarrollador frontend con experiencia en JavaScript, HTML,
           CSS y especializado en frameworks y bibliotecas modernas como Next.js
@@ -130,7 +130,7 @@ const About = () => {
         // /** ESTA ES EL RENDERIZADO VENTANA COMPLETA **/
         <div
           id="contenedor-principal"
-          className="flex flex-wrap p-2 justify-evenly"
+          className="flex flex-wrap p-2 items-center justify-center"
         >
           {cardsData.map((card, index) => (
             <div
