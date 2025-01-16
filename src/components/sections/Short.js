@@ -88,7 +88,7 @@ const Short = () => {
   return (
     <div
       id="principal"
-      className="flex flex-col items-center justify-center dark:bg-reactBlack dark:text-white font-barlow font-light p-6 w-full h-full"
+      className="flex flex-col items-center justify-center dark:bg-reactBlack dark:text-white font-barlow font-light p-6 w-full h-full bg-fuchsia-800"
     >
       <div
         id="educacion"
@@ -127,8 +127,8 @@ const Short = () => {
         ))}
       </div>
       {/* SKILLES */}
-      <div id="skilles" className="flex  w-full items-center">
-        <div className="flex flex-col w-[60%] items-center">
+      <div id="skilles" className="flex justify-center w-full items-center p-2">
+        <div className="flex flex-col md:w-[60%] items-center">
           <h1 className="flex gap-4 text-reactBlack dark:text-white text-2xl">
             <Image
               src="/images/notebook.png"
@@ -142,7 +142,7 @@ const Short = () => {
           </h1>
           <div
             id="skiles izquierda"
-            className="flex justify-around items-center flex-wrap gap-2 m-4"
+            className="flex justify-around items-center flex-wrap gap-2"
           >
             {cardSkill.map((el, index) => (
               <div
@@ -169,9 +169,9 @@ const Short = () => {
         </div>
         <div
           id="skilles derecha"
-          className="flex justify-center items-center w-[40%]"
+          className="flex justify-center p-2 items-center md:w-[40%]"
         >
-          <ul className="flex items-center justify-center text-xl flex-col p-4 m-2 gap-4">
+          <ul className="flex items-center justify-center text-xl flex-col gap-4">
             <li className="bg-clearPurple text-white rounded-2xl p-2 flex text-center lg:animate-scroll-front">
               Responsabilidad
             </li>
@@ -181,7 +181,7 @@ const Short = () => {
             <li className="bg-clearPurple text-white rounded-2xl p-2 flex text-center lg:animate-scroll-back">
               Puntualidad
             </li>
-            <li className="bg-clearPurple text-white rounded-2xl  p-2 flex text-center lg:animate-scroll-front">
+            <li className="bg-clearPurple text-white rounded-2xl  p-2 flex text-center lg:animate-scroll-back">
               Aprendizaje Continuo
             </li>
             <li className="bg-clearPurple text-white rounded-2xl p-2 flex text-center lg:animate-scroll-back">
