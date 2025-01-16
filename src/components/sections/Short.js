@@ -88,7 +88,7 @@ const Short = () => {
   return (
     <div
       id="principal"
-      className="flex flex-col items-center justify-center dark:bg-reactBlack dark:text-white font-barlow font-light p-6 w-full h-full bg-fuchsia-800"
+      className="flex flex-col items-center justify-center dark:bg-reactBlack dark:text-white font-barlow font-light p-6 w-full h-full"
     >
       <div
         id="educacion"
